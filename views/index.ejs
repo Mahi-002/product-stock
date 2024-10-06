@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items List</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <div id="add-box">
+        <form action="/add-item" method="POST">
+            <label for="item">Item:</label>
+            <input type="text" name="item" id="item" required>
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" required>
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" required>
+            <button type="submit" id="add-bt">Add</button>
+        </form>
+    </div>
+
+    <h2>Items List</h2>
+    <ul id="items-list">
+        <% items.forEach(item => { %>
+            <li>
+                <%= item.item %> - <%= item.description %> - Quantity: <%= item.quantity %>
+                <button class="update-btn" data-id="<%= item.id %>" data-quantity="<%= item.quantity %>" data-decrement="1">ADD 1</button>
+                <button class="update-btn" data-id="<%= item.id %>" data-quantity="<%= item.quantity %>" data-decrement="2">ADD 2</button>
+                <button class="update-btn" data-id="<%= item.id %>" data-quantity="<%= item.quantity %>" data-decrement="3">ADD 3</button>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
